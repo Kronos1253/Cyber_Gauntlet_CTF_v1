@@ -37,7 +37,6 @@ All components communicate over a dedicated **Docker network**.
 
 ### **Future Enhancements**
 🚀 **Pre-configured vulnerable machine** for realistic attack scenarios.  
-💻 **Windows-based victim machine** for more diverse challenges.  
 📂 **Persistent storage** to track player progress.  
 🛠️ **Automated flag generation** within victim machines.  
 
