@@ -1,74 +1,71 @@
-Cyber Gauntlet CTF
+## **Cyber Gauntlet CTF**
 
-Overview
+### **Overview**
+Cyber Gauntlet CTF is an immersive cybersecurity challenge designed to test and refine your hacking skills. The environment consists of:
+- **Attacker Machine** – A Kali Linux workstation for penetration testing.
+- **Vulnerable Victim Machine** – A Linux system with security weaknesses.
+- **CTFd Platform** – A scoring system to submit captured flags.
 
-Cyber Gauntlet CTF is a Capture The Flag (CTF) environment designed to provide users with an interactive cybersecurity challenge. The environment includes an attacker machine and a vulnerable victim machine, where players can conduct reconnaissance, exploit vulnerabilities, and retrieve hidden flags. A CTFd platform is used to manage scoring and flag submission.
+This setup is built using **Docker Compose**, ensuring a portable and easily deployable CTF environment.
 
-This setup is built using Docker Compose, allowing for a portable and easily deployable CTF environment.
+---
 
-Current Setup
+### **Current Setup**
+✅ **Kali Attacker Machine**
+- Uses the `kalilinux/kali-rolling` Docker image.
+- Interactive terminal access for conducting attacks.
 
-The initial setup consists of the following Dockerized components:
+✅ **Ubuntu Victim Machine**
+- Currently uses `ubuntu:latest`.
+- Future iterations will introduce pre-configured vulnerabilities.
 
-Kali Attacker Machine – A penetration testing workstation using the official Kali Linux Docker image.
+✅ **CTFd Scoring Platform**
+- Hosted using the `ctfd/ctfd` image.
+- Accessible at **http://localhost:8000**.
+- Tracks challenges and submissions.
 
-Ubuntu Victim Machine – A basic Linux environment that will be configured with vulnerabilities in future versions.
+All components communicate over a dedicated **Docker network**.
 
-CTFd Scoring Platform – A self-hosted instance of CTFd to manage challenge submissions and scoring.
+---
 
-All components run within a dedicated Docker network, ensuring seamless communication for the attack scenarios.
+### **Task List**
+1️⃣ **Set up the Attacker Machine** (Kali Linux)
+2️⃣ **Deploy the Victim Machine** (Ubuntu-based target)
+3️⃣ **Host CTFd for Scoring and Flag Submission**
 
-Task List
+---
 
-Create an Attacker Machine
+### **Future Enhancements**
+🚀 **Pre-configured vulnerable machine** for realistic attack scenarios.  
+💻 **Windows-based victim machine** for more diverse challenges.  
+📂 **Persistent storage** to track player progress.  
+🛠️ **Automated flag generation** within victim machines.  
 
-Uses the kalilinux/kali-rolling Docker image.
+---
 
-Configured to allow interactive terminal access.
+### **Getting Started**
+#### **Prerequisites**
+🔹 Docker & Docker Compose installed.
 
-Create a Victim Machine
-
-Currently uses an ubuntu:latest image.
-
-Future iterations will include pre-configured vulnerabilities.
-
-Deploy Capture The Flag Platform (CTFd)
-
-Hosted via the ctfd/ctfd Docker image.
-
-Accessible via http://localhost:8000 for flag submission.
-
-Future Enhancements
-
-Replace the base victim machine with a pre-configured vulnerable environment.
-
-Introduce a Windows-based victim machine.
-
-Add persistent storage for attack progress tracking.
-
-Automate flag generation and placement within victim machines.
-
-Getting Started
-
-Prerequisites
-
-Docker & Docker Compose installed.
-
-Deployment
-
+#### **Deployment**
 Run the following command to deploy the environment:
-
+```sh
 docker-compose up -d
+```
 
-Accessing the Components
-
-Kali Attacker Machine:
-
+#### **Accessing the Components**
+🔹 **Kali Attacker Machine:**
+```sh
 docker exec -it kali_attacker /bin/bash
-
-Ubuntu Victim Machine:
-
+```
+🔹 **Ubuntu Victim Machine:**
+```sh
 docker exec -it ubuntu_victim /bin/bash
+```
+🔹 **CTFd (Scoring Platform):**  
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-CTFd (Scoring Platform):Open http://localhost:8000 in your browser.
+---
 
+### **Are You Ready to Conquer the Gauntlet?**
+Join us for an electrifying CTF experience where only the most skilled will prevail! 🚀
