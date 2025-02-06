@@ -1,0 +1,39 @@
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali_attacker
+    tty: true
+    stdin_open: true
+    networks:
+      - ctf_network
+    command: ["/bin/bash"]
+
+  ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu_victim
+    tty: true
+    stdin_open: true
+    networks:
+      - ctf_network
+    command: ["/bin/bash"]
+
+  ctfd:
+    image: ctfd/ctfd:latest
+    container_name: ctfd
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - ctf_network
+    environment:
+      - CTF_NAME=Cyber Gauntlet CTF
+      - SECRET_KEY=mysecretkey
+      - DATABASE_URL=sqlite:///ctfd.db
+    volumes:
+      - ctfd_data:/var/www/ctfd
+
+volumes:
+  ctfd_data:
+networks:
+  ctf_network:
+    driver: bridge
