@@ -1,7 +1,9 @@
 services:
   kali:
-    image: kali_attacker
+    image: kronos12531/cyber_gauntlet_attacker:v1
     container_name: attacker
+    #user: attacker
+    #password: password
     tty: true
     stdin_open: true
     #Running in privileged mode to conduct reconnaisance with nmap.
@@ -13,7 +15,7 @@ services:
       - 2222:22
 
   ubuntu:
-    image: ubuntu_victim
+    image: kronos12531/cyber_gauntlet_victim:v1
     container_name: victim
     tty: true
     stdin_open: true
@@ -25,7 +27,7 @@ services:
       - 2223:22
 
   ctfd:
-    image: ctfd_v1
+    image: kronos12531/cyber_gauntlet_ctf:v1
     container_name: ctfd
     restart: unless-stopped
     ports:
