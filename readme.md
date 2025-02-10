@@ -1,5 +1,7 @@
 ## **Cyber Gauntlet CTF**
 
+Beginner-friendly Capture the Flag.
+
 ### **Overview**
 Cyber Gauntlet CTF is an immersive cybersecurity challenge designed to test and refine your hacking skills. The environment consists of:
 - **Attacker Machine** – A Kali Linux workstation for penetration testing.
@@ -44,6 +46,10 @@ All components communicate over a dedicated **Docker network**.
 
 ### **Getting Started**
 #### **Prerequisites**
+
+https://docs.docker.com/get-started/get-docker/
+https://docs.docker.com/compose/install/
+
 🔹 Docker & Docker Compose installed.
 
 #### **Deployment**
@@ -55,11 +61,11 @@ docker-compose up -d
 #### **Accessing the Components**
 🔹 **Kali Attacker Machine:**
 ```sh
-docker exec -it kali_attacker /bin/bash
+docker exec -it attacker /bin/bash
 ```
 🔹 **Ubuntu Victim Machine:**
 ```sh
-docker exec -it ubuntu_victim /bin/bash
+docker exec -it victim /bin/bash
 ```
 🔹 **CTFd (Scoring Platform):**  
 Open [http://localhost:8000](http://localhost:8000) in your browser.
