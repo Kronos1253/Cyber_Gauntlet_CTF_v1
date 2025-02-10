@@ -62,6 +62,10 @@ docker-compose up -d
 ```sh
 docker exec -it attacker /bin/bash
 ```
+or
+```sh
+ssh attacker@localhost -p 2222
+```
 🔹 **Ubuntu Victim Machine:**
 ```sh
 docker exec -it victim /bin/bash
