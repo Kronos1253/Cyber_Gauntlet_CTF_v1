@@ -47,10 +47,9 @@ All components communicate over a dedicated **Docker network**.
 ### **Getting Started**
 #### **Prerequisites**
 
-https://docs.docker.com/get-started/get-docker/
-https://docs.docker.com/compose/install/
-
 🔹 Docker & Docker Compose installed.
+- https://docs.docker.com/get-started/get-docker/
+- https://docs.docker.com/compose/install/
 
 #### **Deployment**
 Run the following command to deploy the environment:
