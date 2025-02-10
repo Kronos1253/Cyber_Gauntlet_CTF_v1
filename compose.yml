@@ -1,24 +1,31 @@
 services:
   kali:
-    image: kalilinux/kali-rolling
-    container_name: kali_attacker
+    image: kali_attacker
+    container_name: attacker
     tty: true
     stdin_open: true
+    #Running in privileged mode to conduct reconnaisance with nmap.
+    privileged: true
+    command: ["/bin/bash", "-c", "service ssh start && tail -f /dev/null"]
     networks:
       - ctf_network
-    command: ["/bin/bash"]
+    ports:
+      - 2222:22
 
   ubuntu:
-    image: ubuntu:latest
-    container_name: ubuntu_victim
+    image: ubuntu_victim
+    container_name: victim
     tty: true
     stdin_open: true
+    command: ["/bin/bash", "-c", "service ssh start && service apache2 start && tail -f /dev/null"]
     networks:
       - ctf_network
-    command: ["/bin/bash"]
+    ports:
+      - 8080:80
+      - 2223:22
 
   ctfd:
-    image: ctfd/ctfd:latest
+    image: ctfd_v1
     container_name: ctfd
     restart: unless-stopped
     ports:
